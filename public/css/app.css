@@ -8376,6 +8376,8 @@ body {
   margin-bottom: 60px;
 }
 
+/* Footer page */
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -8397,5 +8399,12 @@ body {
 
 .footer .container p a {
   color: inherit;
+}
+
+/* User Register page */
+
+.register-page img.captcha {
+  margin: 10px 0 0px 0;
+  cursor: pointer;
 }
 
