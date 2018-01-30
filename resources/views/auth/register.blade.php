@@ -15,7 +15,8 @@
                             <label for="name" class="col-md-4 control-label">用戶名稱</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}"
+                                required autofocus>
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -29,7 +30,8 @@
                             <label for="email" class="col-md-4 control-label">E-MaiL地址</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}"
+                                required>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -57,7 +59,8 @@
                             <label for="password-confirm" class="col-md-4 control-label">確認密碼</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                <input id="password-confirm" type="password" class="form-control"
+                                name="password_confirmation" required>
                             </div>
                         </div>
 
@@ -67,7 +70,8 @@
                             <div class="col-md-6">
                                 <input id="captcha" class="form-control" name="captcha" >
 
-                                <img class="thumbnail captcha" src="{{ captcha_src('flat') }}" onclick="this.src='/captcha/flat?'+Math.random()" title="點擊圖片刷新驗證碼">
+                                <img class="thumbnail captcha" src="{{ captcha_src('flat') }}"
+                                onclick="this.src='/captcha/flat?'+Math.random()" title="點擊圖片刷新驗證碼">
 
                                 @if ($errors->has('captcha'))
                                     <span class="help-block">

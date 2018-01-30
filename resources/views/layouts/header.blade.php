@@ -34,6 +34,13 @@
                             {{ Auth::user()->name }} <span class="creat"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
+
+                            <li>
+                                <a href="{{ route('users.edit',Auth::id()) }}">
+                                    編輯自介
+                                </a>
+                            </li>
+
                             <li>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById
                                 ('logout-form').submit();">

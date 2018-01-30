@@ -15,10 +15,10 @@
                     <div class="media-body">
                         <hr>
                         <h4><strong>個人簡介</strong></h4>
-                        <p>Hello world!</p>
+                        <p>{{ $user->introduction }}</p>
                         <hr>
                         <h4><strong>註冊於</strong></h4>
-                        <p>January 13 2018</p>
+                        <p>{{ $user->created_at->diffForHumans() }}</p>
                     </div>
                 </div>
             </div>
@@ -28,7 +28,9 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <span>
-                    <h1 class="panel-title pull-left" style="font-size: 30px;">{{ $user->name }}&nbsp;&nbsp;&nbsp;<small>{{ $user->email }}</small></small></h1>
+                    <h1 class="panel-title pull-left" style="font-size: 30px;">
+                        {{ $user->name }}&nbsp;&nbsp;&nbsp;<small>{{ $user->email }}</small>
+                    </h1>
                 </span>
             </div>
         </div>
