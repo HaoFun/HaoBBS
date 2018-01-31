@@ -7,6 +7,11 @@ use App\Http\Requests\UserRequest;
 
 class UsersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth',['except' => ['show']]);
+    }
+
     public function show(User $user)
     {
         return view('users.show',compact('user'));
@@ -14,11 +19,15 @@ class UsersController extends Controller
 
     public function edit(User $user)
     {
+        //驗證授權 第一個參數為UserPolicy中的update()方法，第二個參數為注入的$user
+        $this->authorize('update',$user);
         return view('users.edit',compact('user'));
     }
 
     public function update(UserRequest $request,ImageUploadHandler $uploader, User $user)
     {
+        //驗證授權
+        $this->authorize('update',$user);
         $data = $request->all();
         if($request->avatar)
         {
