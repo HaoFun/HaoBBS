@@ -28,8 +28,8 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             <span class="user-avatar pull-left" style="margin-right: 8px;margin-top: -5px">
-                                <img src="{{ asset('images/avatar/avatar.png') }}" class="img-responsive img-circle"
-                                alt="avatar" width="30px" height="30px">
+                                <img src="{{ Auth::user()->avatar ?:asset('images/avatar/avatar.png') }}" class="img-responsive img-circle"
+                                alt="avatar" style="width: 30px;height: 30px">
                             </span>
                             {{ Auth::user()->name }} <span class="creat"></span>
                         </a>

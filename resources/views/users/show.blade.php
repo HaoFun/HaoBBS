@@ -9,7 +9,7 @@
             <div class="panel-body">
                 <div class="media">
                     <div class="text-center">
-                        <img class="thumbnail img-responsive" src="{{ asset('images/avatar/avatar.png') }}"
+                        <img class="thumbnail img-responsive" src="{{ $user->avatar ?:asset('images/avatar/avatar.png') }}"
                         alt="{{ $user->name.'頭像' }}" width="300px" height="300px">
                     </div>
                     <div class="media-body">

@@ -27,7 +27,8 @@ class UserRequest extends FormRequest
         return [
             'name'         => 'required|between:3,25|unique:users,name,'.Auth::id(),
             'email'        => 'required|email',
-            'introduction' => 'max:100'
+            'introduction' => 'max:100',
+            'avatar'       => 'mimes:jpeg,png,gif,jpg|dimensions:min_width=200,min_height=200'
         ];
     }
 
@@ -39,7 +40,9 @@ class UserRequest extends FormRequest
             'name.unique'      => '已有重複的用戶名稱',
             'email.required'   => 'Email地址不能空白',
             'email.email'      => 'Email地址格式錯誤',
-            'introduction.max' => '個人簡介不可超出100字元'
+            'introduction.max' => '個人簡介不可超出100字元',
+            'avatar.mimes'     => '頭像圖片檔只支援jpg、jpeg、png、gif',
+            'avatar.dimensions'=> '頭像長寬最少需200px以上'
         ];
     }
 }
