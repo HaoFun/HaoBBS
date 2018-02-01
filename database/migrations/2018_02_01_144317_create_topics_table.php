@@ -15,9 +15,9 @@ class CreateTopicsTable extends Migration
     {
         Schema::create('topics', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->index()->commit('主題名稱');
-            $table->text('description')->nullable()->commit('主題描述');
-            $table->integer('post_count')->default(0)->commit('該主題涵蓋的文章數');
+            $table->string('name')->index()->comment('主題名稱');
+            $table->text('description')->nullable()->comment('主題描述');
+            $table->integer('post_count')->default(0)->comment('該主題涵蓋的文章數');
             $table->timestamps();
         });
     }

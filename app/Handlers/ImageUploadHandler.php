@@ -7,7 +7,6 @@ class ImageUploadHandler
 {
     //允許以下副檔名格式圖片檔案上傳
     protected $allowed_ext = ['png','jpg','jpeg','gif'];
-
     public function save($file, $folder, $file_prefix,$max_width=false)
     {
         //存檔路徑 uploads/images/avatar/201801/31/
@@ -20,7 +19,7 @@ class ImageUploadHandler
         $extension = strtolower($file->getClientOriginalExtension()) ?: 'png';
 
         //將儲存路徑前綴加上該用戶的ID或名稱 1_15599648215_abcdef1234.png
-        $filename = $file_prefix.'_'.time().'_'.str_random(10).$extension;
+        $filename = $file_prefix.'_'.time().'_'.str_random(10).'.'.$extension;
 
         //上傳檔案副檔名不為上方所允許的話，將取笑
         if(!in_array($extension,$this->allowed_ext))
@@ -29,13 +28,6 @@ class ImageUploadHandler
         }
         //將上傳的圖片移至指定的路徑下
         $file->move($upload_path,$filename);
-
-        //如有設置最大寬度且副檔名不為gif，則需要裁剪
-        if($max_width && $extension !== 'gif')
-        {
-            $this->reduceSize($upload_path.'/'.$filename,$max_width);
-        }
-
         return [
             'path' => config('app.url')."/".$folder_name.$filename
         ];
