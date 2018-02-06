@@ -17,7 +17,11 @@
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <ul class="nav navbar-nav">
-
+                <li class="{{ active_class(if_route('posts.index')) }}"><a href="{{ route('posts.index') }}">主題</a></li>
+                <li class="{{ active_class(if_route('topics.show') && if_route_param('topic',1)) }}"><a href="{{ route('topics.show',1) }}">籃球</a></li>
+                <li class="{{ active_class(if_route('topics.show') && if_route_param('topic',2)) }}"><a href="{{ route('topics.show',2) }}">足球</a></li>
+                <li class="{{ active_class(if_route('topics.show') && if_route_param('topic',3)) }}"><a href="{{ route('topics.show',3) }}">棒球</a></li>
+                <li class="{{ active_class(if_route('topics.show') && if_route_param('topic',4)) }}"><a href="{{ route('topics.show',4) }}">網球</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

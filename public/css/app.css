@@ -8414,33 +8414,39 @@ body {
   margin-bottom: 0px;
 }
 
-/* Post Index Page */
+/* Post Index Page  Topic Show Page*/
 
-.posts-index-page .post-list .nav > li > a {
+.posts-index-page .post-list .nav > li > a,
+.topics-show-page .post-list .nav > li > a {
   position: relative;
   display: block;
   padding: 5px 14px;
   font-size: 0.9em;
 }
 
-.posts-index-page .post-list a {
+.posts-index-page .post-list a,
+.topics-show-page .post-list a {
   color: #444444;
 }
 
-.posts-index-page .post-list .meta {
+.posts-index-page .post-list .meta,
+.topics-show-page .post-list .meta {
   font-size: 0.9em;
   color: #b3b3b3;
 }
 
-.posts-index-page .post-list .meta a {
+.posts-index-page .post-list .meta a,
+.topics-show-page .post-list .meta a {
   color: #b3b3b3;
 }
 
-.posts-index-page .post-list .badge {
+.posts-index-page .post-list .badge,
+.topics-show-page .post-list .badge {
   background-color: #ff7623;
 }
 
-.posts-index-page .post-list hr {
+.posts-index-page .post-list hr,
+.topics-show-page .post-list hr {
   margin-top: 12px;
   margin-bottom: 12px;
   border: 0;

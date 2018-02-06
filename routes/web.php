@@ -19,6 +19,9 @@ Auth::routes();
 Route::resource('users','UsersController',['only' => ['update','edit']]);
 Route::get('/users/{user}','UsersController@show')->name('users.show');  //隱式綁定
 
+/* Post route */
 Route::resource('posts','PostsController');
 
+/* Topic route */
+Route::resource('topics','TopicsController',['only' => ['show']]);
 

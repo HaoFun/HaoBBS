@@ -20,7 +20,7 @@
                     </div>
 
                     <div class="media-body meta">
-                        <a href="#" title="{{ $post->topic->name }}">
+                        <a href="{{ route('topics.show',$post->topic->id) }}" title="{{ $post->topic->name }}">
                             <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
                             {{ $post->topic->name }}
                         </a>
