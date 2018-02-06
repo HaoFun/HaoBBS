@@ -8414,3 +8414,36 @@ body {
   margin-bottom: 0px;
 }
 
+/* Post Index Page */
+
+.posts-index-page .post-list .nav > li > a {
+  position: relative;
+  display: block;
+  padding: 5px 14px;
+  font-size: 0.9em;
+}
+
+.posts-index-page .post-list a {
+  color: #444444;
+}
+
+.posts-index-page .post-list .meta {
+  font-size: 0.9em;
+  color: #b3b3b3;
+}
+
+.posts-index-page .post-list .meta a {
+  color: #b3b3b3;
+}
+
+.posts-index-page .post-list .badge {
+  background-color: #ff7623;
+}
+
+.posts-index-page .post-list hr {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  border: 0;
+  border-top: 1px solid #dcebf5;
+}
+
