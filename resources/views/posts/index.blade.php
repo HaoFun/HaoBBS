@@ -24,7 +24,7 @@
                     {{--文章列表--}}
                     @include('posts.post_list',['posts' => $posts])
                     {{--分頁--}}
-                    {!! $posts->render() !!}
+                    {!! $posts->appends(['order' => isset($_GET['order'])? $_GET['order']:'default'])->render() !!}
                 </div>
             </div>
         </div>

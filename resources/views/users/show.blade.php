@@ -39,7 +39,11 @@
         {{--用戶發布的內容--}}
         <div class="panel panel-default">
             <div class="panel-body">
-                暫無資料
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#">{{ $user->name."的文章" }}</a></li>
+                    <li><a href="#">{{ $user->name."的回覆" }}</a></li>
+                </ul>
+                @include('users.posts',['posts' => $user->posts()->recent()->paginate(5)])
             </div>
         </div>
     </div>

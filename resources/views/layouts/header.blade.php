@@ -40,9 +40,15 @@
                             {{ Auth::user()->name }} <span class="creat"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-
+                            <li>
+                                <a href="{{ route('users.show',Auth::id()) }}">
+                                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                    個人中心
+                                </a>
+                            </li>
                             <li>
                                 <a href="{{ route('users.edit',Auth::id()) }}">
+                                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                     編輯自介
                                 </a>
                             </li>
@@ -50,7 +56,8 @@
                             <li>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById
                                 ('logout-form').submit();">
-                                    登出
+                                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                                    用戶登出
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
                                     {{ csrf_field() }}
