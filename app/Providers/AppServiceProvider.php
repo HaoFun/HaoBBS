@@ -2,8 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\Topic;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,6 +18,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Carbon::setLocale('zh');
+        //全視圖變數 $header_topics
+        View::share('header_topics',Topic::get());
     }
 
     /**

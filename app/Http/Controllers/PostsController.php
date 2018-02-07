@@ -12,9 +12,9 @@ class PostsController extends Controller
         $this->middleware('auth',['except' => ['index','show']]);
     }
 
-    public function index()
+    public function index(Request $request, Post $post)
     {
-        $posts = Post::with('user','topic')->paginate(30);
+        $posts = $post->withOrder($request->order)->paginate(20);
         return view('posts.index',compact('posts'));
     }
 

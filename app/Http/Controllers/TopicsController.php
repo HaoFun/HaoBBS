@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 
 class TopicsController extends Controller
 {
-    public function show(Topic $topic)
+    public function show(Topic $topic, Request $request, Post $post)
     {
-        //取Topic主題關聯的post文章，預加載user、topic防止N+1問題，並按照每頁20筆來分頁
-        $posts = Post::where('topic_id',$topic->id)->with('user','topic')->paginate(20);
+        //取Topic主題關聯的post文章，並按照每頁20筆來分頁
+        $posts = $post->withOrder($request->order)->where('topic_id',$topic->id)->paginate(20);
         return view('posts.index',compact('posts','topic'));
     }
 }
