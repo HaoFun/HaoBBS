@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    protected $fillable = ['title','body','user_id','topic_id','reply_count','view_count',
-        'last_reply_user_id','order','excerpt','slug'];
+    protected $fillable = ['title','body','topic_id','excerpt','slug'];
 
     public function scopeWithOrder($query, $order)
     {

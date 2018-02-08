@@ -31,6 +31,11 @@
                     <li><a href="{{ route('login') }}">登入</a></li>
                     <li><a href="{{ route('register') }}">註冊</a></li>
                 @else
+                    <li>
+                        <a href="{{ route('posts.create') }}">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        </a>
+                    </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             <span class="user-avatar pull-left" style="margin-right: 8px;margin-top: -5px">

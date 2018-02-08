@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostRequest;
 use App\Models\Post;
+use App\Models\Topic;
 use Illuminate\Http\Request;
+use Auth;
 
 class PostsController extends Controller
 {
@@ -23,19 +26,25 @@ class PostsController extends Controller
 
     }
 
-    public function create()
+    public function create(Post $post)
     {
-
+        $topics = Topic::all();
+        return view('posts.create_and_edit',compact('post','topics'));
     }
 
-    public function store()
+    public function store(PostRequest $request,Post $post)
     {
+        $post->fill($request->all());
+        $post->user_id = Auth::id();
+        $post->save();
 
+        return redirect()->route('posts.show',$post->id)->with('message','新增文章成功!');
     }
 
-    public function edit()
+    public function edit(Post $post)
     {
-
+        $topics = Topic::all();
+        return view('posts.create_and_edit',compact('post','topics'));
     }
 
     public function update()
