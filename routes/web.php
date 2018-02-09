@@ -21,6 +21,7 @@ Route::get('/users/{user}','UsersController@show')->name('users.show');  //隱�
 
 /* Post route */
 Route::resource('posts','PostsController');
+Route::post('upload_image','PostsController@uploadImage')->name('posts.upload_image'); //上傳圖片
 
 /* Topic route */
 Route::resource('topics','TopicsController',['only' => ['show']]);

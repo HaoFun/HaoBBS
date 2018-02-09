@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Handlers\ImageUploadHandler;
 use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use App\Models\Topic;
@@ -55,5 +56,29 @@ class PostsController extends Controller
     public function destroy()
     {
 
+    }
+
+    public function uploadImage(Request $request, ImageUploadHandler $uploader)
+    {
+        //初始返回數據
+        $data = [
+            'success'   => false,
+            'msg'       => '上傳失敗',
+            'file_path' => ''
+        ];
+
+        //判斷是否有上傳文件 (這邊的upload_file是在editor中upload 設定的 fileKey)
+        if($file = $request->upload_file)
+        {
+            //保存圖片
+            $result = $uploader->save($request->upload_file,'posts',Auth::id(),1024);
+            if($result)
+            {
+                $data['success']   =  true;
+                $data['msg']       =  '上傳成功';
+                $data['file_path'] =  $result['path'];
+            }
+        }
+        return $data;
     }
 }

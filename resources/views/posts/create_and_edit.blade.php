@@ -68,6 +68,21 @@
         $(document).ready(function () {
             var editor = new Simditor({
                 textarea:$('#editor'),
+                locale:'zh-TW',
+                toolbar:[
+                    'title', 'bold', 'italic', 'underline', 'strikethrough', 'fontScale',
+                    'color', 'ol', 'ul', 'blockquote', 'code', 'table', 'link', 'image',
+                    'hr', 'indent', 'outdent', 'alignment'
+                ],
+                upload:{
+                    url:'{{ route('posts.upload_image') }}',
+                    params:{ _token:'{{ csrf_token() }}' },
+                    fileKey:'upload_file',
+                    connectionCount:3,
+                    leaveConfirm:'文件上傳中，關閉此頁面將取消上傳'
+                },
+                defaultImage:'{{ asset('images/editor/logo.png') }}',
+                pasteImage:true,
             });
         });
     </script>
