@@ -10,7 +10,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title', 'HaoBBS') - Laravel</title>
-
+    <meta name="description" content="@yield('description','HaoBBS')">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('styles')

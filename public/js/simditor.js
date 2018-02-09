@@ -4424,23 +4424,26 @@ ImageButton = (function(superClass) {
       return e.stopPropagation();
     });
     $uploadItem.on('change', 'input[type=file]', (function(_this) {
-      return function(e) {
-        if (_this.editor.inputManager.focused) {
-          _this.editor.uploader.upload($input, {
-            inline: true
-          });
-          createInput();
-        } else {
-          _this.editor.one('focus', function(e) {
-            _this.editor.uploader.upload($input, {
-              inline: true
-            });
-            return createInput();
-          });
-          _this.editor.focus();
-        }
-        return _this.wrapper.removeClass('menu-on');
-      };
+        var $editor;
+        $editor = this.editor;
+        return function(e) {
+            if (_this.editor.inputManager.focused) {
+                _this.editor.uploader.upload($input, {
+                    inline: true
+                });
+                createInput();
+            } else {
+                _this.editor.one('focus', function(e) {
+                    _this.editor.uploader.upload($input, {
+                        inline: true
+                    });
+                    return createInput();
+                });
+                _this.editor.focus();
+                $editor.focus();
+            }
+            return _this.wrapper.removeClass('menu-on');
+        };
     })(this));
     this.editor.uploader.on('beforeupload', (function(_this) {
       return function(e, file) {
