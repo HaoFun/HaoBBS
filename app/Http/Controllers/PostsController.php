@@ -44,13 +44,16 @@ class PostsController extends Controller
 
     public function edit(Post $post)
     {
+        $this->authorize('update',$post);
         $topics = Topic::all();
         return view('posts.create_and_edit',compact('post','topics'));
     }
 
-    public function update()
+    public function update(PostRequest $request, Post $post)
     {
-
+        $this->authorize('update',$post);
+        $post->update($request->all());
+        return redirect()->route('posts.show',$post->id)->with('success','更新文章成功');
     }
 
     public function destroy()
