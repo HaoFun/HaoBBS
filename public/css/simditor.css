@@ -461,6 +461,18 @@
 .simditor .simditor-toolbar .toolbar-menu.toolbar-menu-color .color-list li .font-color-7 {
   background: #999999;
 }
+.simditor .simditor-toolbar .toolbar-menu.toolbar-menu-color .color-list li .font-color-8 {
+  background: #ffee00;
+}
+.simditor .simditor-toolbar .toolbar-menu.toolbar-menu-color .color-list li .font-color-9 {
+  background: #8ff7ff;
+}
+.simditor .simditor-toolbar .toolbar-menu.toolbar-menu-color .color-list li .font-color-10 {
+  background: #950902;
+}
+.simditor .simditor-toolbar .toolbar-menu.toolbar-menu-color .color-list li .font-color-11 {
+  background: #09144c;
+}
 .simditor .simditor-toolbar .toolbar-menu.toolbar-menu-table .menu-create-table {
   background: #ffffff;
   padding: 1px;
