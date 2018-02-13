@@ -39,7 +39,7 @@ class PostsController extends Controller
         $post->user_id = Auth::id();
         $post->save();
 
-        return redirect()->route('posts.show',$post->id)->with('message','新增文章成功!');
+        return redirect()->route('posts.show',$post->id)->with('message','新增文章成功');
     }
 
     public function edit(Post $post)
@@ -56,9 +56,11 @@ class PostsController extends Controller
         return redirect()->route('posts.show',$post->id)->with('success','更新文章成功');
     }
 
-    public function destroy()
+    public function destroy(Post $post)
     {
-
+        $this->authorize('destroy',$post);
+        $post->delete();
+        return redirect()->route('posts.index')->with('success','刪除文章成功');
     }
 
     public function uploadImage(Request $request, ImageUploadHandler $uploader)

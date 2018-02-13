@@ -25,4 +25,9 @@ class PostPolicy
         //判斷文章的用戶ID是否為登入者的用戶ID
         return $post->user_id === $user->id;
     }
+
+    public function destroy(User $user, Post $post)
+    {
+        return $post->user_id === $user->id;
+    }
 }

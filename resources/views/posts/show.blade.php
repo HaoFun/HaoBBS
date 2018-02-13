@@ -39,15 +39,21 @@
                 <div class="post-body">
                     {!! $post->body !!}
                 </div>
+                @can('update',$post)
                 <div class="operate">
                     <hr>
-                    <a href="{{ route('posts.edit',$post->id) }}">
+                    <a href="{{ route('posts.edit',$post->id) }}" class="btn btn-default btn-xs pull-left">
                         <i class="glyphicon glyphicon-edit"></i>&nbsp;編輯
                     </a>
-                    <a href="#">
-                        <i class="glyphicon glyphicon-trash"></i>&nbsp;刪除
-                    </a>
+                    <form action="{{ route('posts.destroy',$post->id) }}" method="POST" accept-charset="UTF-8">
+                        {{ csrf_field() }}
+                        {{ method_field('DELETE') }}
+                        <button type="submit" class="btn btn-default btn-xs pull-left" style="margin-left: 6px">
+                            <i class="glyphicon glyphicon-trash"></i>&nbsp;刪除
+                        </button>
+                    </form>
                 </div>
+                @endcan
             </div>
         </div>
     </div>
