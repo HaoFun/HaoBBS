@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-
 use App\Models\Post;
+use Stichoza\GoogleTranslate\TranslateClient;
 
 class PostObserver
 {
@@ -11,5 +11,10 @@ class PostObserver
     {
         $post->body    = clean($post->body,'user_post_body');
         $post->excerpt = make_excerpt($post->body);
+
+        if(!$post->slug)
+        {
+            $post->slug = str_slug(TranslateClient::translate(null,'en',$post->title));
+        }
     }
 }

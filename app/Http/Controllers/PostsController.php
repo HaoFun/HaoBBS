@@ -22,8 +22,13 @@ class PostsController extends Controller
         return view('posts.index',compact('posts'));
     }
 
-    public function show(Post $post)
+    public function show(Request $request, Post $post)
     {
+        //如$post->slug不為空值 且 $request->slug不符合$post->slug，執行302跳轉
+        if(!empty($post->slug) && $post->slug !== $request->slug)
+        {
+            return redirect()->to($post->link(),302);
+        }
         return view('posts.show',compact('post'));
     }
 
@@ -39,7 +44,7 @@ class PostsController extends Controller
         $post->user_id = Auth::id();
         $post->save();
 
-        return redirect()->route('posts.show',$post->id)->with('message','新增文章成功');
+        return redirect()->to($post->link())->with('message','新增文章成功');
     }
 
     public function edit(Post $post)
@@ -53,7 +58,7 @@ class PostsController extends Controller
     {
         $this->authorize('update',$post);
         $post->update($request->all());
-        return redirect()->route('posts.show',$post->id)->with('success','更新文章成功');
+        return redirect()->to($post->link())->with('success','更新文章成功');
     }
 
     public function destroy(Post $post)

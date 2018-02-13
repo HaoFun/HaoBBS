@@ -20,7 +20,8 @@ Route::resource('users','UsersController',['only' => ['update','edit']]);
 Route::get('/users/{user}','UsersController@show')->name('users.show');  //隱式綁定
 
 /* Post route */
-Route::resource('posts','PostsController');
+Route::resource('posts','PostsController',['only' => ['index','create','store','edit','update','destroy']]);
+Route::get('/posts/{post}/{slug?}','PostsController@show')->name('posts.show');
 Route::post('upload_image','PostsController@uploadImage')->name('posts.upload_image'); //上傳圖片
 
 /* Topic route */

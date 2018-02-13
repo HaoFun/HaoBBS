@@ -11,7 +11,7 @@
 
                 <div class="media-body">
                     <div class="media-heading">
-                        <a href="{{ route('posts.show', [$post->id]) }}" title="{{ $post->title }}">
+                        <a href="{{ $post->link() }}" title="{{ $post->title }}">
                             {{ $post->title }}
                         </a>
                         <a class="pull-right" href="{{ route('posts.show',[$post->id]) }}">
