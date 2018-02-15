@@ -46,6 +46,11 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
+
     public function link($params=[])
     {
         //生成posts.show路由，路由中加上slug，$params允許附加的URL參數

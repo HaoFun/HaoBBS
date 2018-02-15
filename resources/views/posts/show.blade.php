@@ -56,6 +56,14 @@
                 @endcan
             </div>
         </div>
+        {{--用戶回覆列表--}}
+        <div class="panel panel-default post-reply">
+            <div class="panel-body">
+                @include('posts.reply_box',['post' => $post])
+                @include('posts.reply_list',['replies' => $post->replies()->with('user')
+                ->orderBy('created_at','Desc')->get()])
+            </div>
+        </div>
     </div>
 </div>
 @stop

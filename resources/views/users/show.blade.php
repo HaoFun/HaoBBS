@@ -40,10 +40,18 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#">{{ $user->name."的文章" }}</a></li>
-                    <li><a href="#">{{ $user->name."的回覆" }}</a></li>
+                    <li class="{{ active_class(if_query('tab',null)) }}">
+                        <a href="{{ route('users.show',$user->id) }}">{{ $user->name."的文章" }}</a>
+                    </li>
+                    <li class="{{ active_class(if_query('tab','replies')) }}">
+                        <a href="{{ route('users.show',[$user->id,'tab' => 'replies']) }}">{{ $user->name."的回覆" }}</a>
+                    </li>
                 </ul>
-                @include('users.posts',['posts' => $user->posts()->recent()->paginate(5)])
+                @if (if_query('tab','replies'))
+                    @include('users.replies',['replies' => $user->replies()->with('post')->recent()->paginate(5)])
+                @else
+                    @include('users.posts',['posts' => $user->posts()->recent()->paginate(5)])
+                @endif
             </div>
         </div>
     </div>
