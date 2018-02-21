@@ -16,4 +16,9 @@ class ReplyObserver
     {
         $reply->post->increment('reply_count',1);
     }
+
+    public function deleted(Reply $reply)
+    {
+        $reply->post->decrement('reply_count',1);
+    }
 }

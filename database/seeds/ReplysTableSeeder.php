@@ -28,6 +28,7 @@ class ReplysTableSeeder extends Seeder
 
             //文章ID
             $reply->post_id = $faker->randomElement($post_ids);
+            \App\Models\Post::find($reply->post_id)->increment('reply_count');
         });
         \App\Models\Reply::insert($replys->toArray());
     }
