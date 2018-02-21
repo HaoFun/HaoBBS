@@ -27,3 +27,6 @@ Route::post('upload_image','PostsController@uploadImage')->name('posts.upload_im
 /* Topic route */
 Route::resource('topics','TopicsController',['only' => ['show']]);
 
+/* Reply route */
+Route::resource('replies','RepliesController',['only' => ['store','destroy']]);
+

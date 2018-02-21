@@ -21,15 +21,21 @@ class ImageUploadHandler
         //將儲存路徑前綴加上該用戶的ID或名稱 1_15599648215_abcdef1234.png
         $filename = $file_prefix.'_'.time().'_'.str_random(10).'.'.$extension;
 
-        //上傳檔案副檔名不為上方所允許的話，將取笑
+        //上傳檔案副檔名不為上方所允許的話，將取消
         if(!in_array($extension,$this->allowed_ext))
         {
             return false;
         }
         //將上傳的圖片移至指定的路徑下
         $file->move($upload_path,$filename);
+
+        //如有設置最大寬度且副檔名不為gif，則執行reduceSize
+        if($max_width && $extension !== 'gif')
+        {
+            $this->reduceSize($upload_path.'/'.$filename,$max_width);
+        }
         return [
-            'path' => config('app.url')."/".$folder_name.$filename
+            'path' => config('app.url').'/'.$folder_name.$filename
         ];
     }
 
