@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\Reply;
+use App\Notifications\PostReplied;
 
 class ReplyObserver
 {
@@ -14,7 +15,9 @@ class ReplyObserver
 
     public function created(Reply $reply)
     {
-        $reply->post->increment('reply_count',1);
+        $post = $reply->post;
+        $post->increment('reply_count',1);
+        $post->user->notify(new PostReplied($reply));
     }
 
     public function deleted(Reply $reply)

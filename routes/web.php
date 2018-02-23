@@ -30,3 +30,5 @@ Route::resource('topics','TopicsController',['only' => ['show']]);
 /* Reply route */
 Route::resource('replies','RepliesController',['only' => ['store','destroy']]);
 
+/* Notification route */
+Route::resource('notifications','NotificationsController',['only' => ['index']]);

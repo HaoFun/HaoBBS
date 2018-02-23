@@ -8990,3 +8990,17 @@ body {
   color: #b3b3b3;
 }
 
+/* notifications style */
+
+.notifications-badge {
+  margin-top: -2px;
+}
+
+.notifications-badge .badge-fade {
+  background-color: #e8e8e8;
+}
+
+.notifications-badge .badge-hint {
+  background-color: tomato !important;
+}
+
